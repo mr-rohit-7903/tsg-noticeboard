@@ -95,13 +95,15 @@ export default function Publish() {
   };
 
   return (
-    <div className="bg-gray-900 text-gray-200 min-h-screen font-sans flex flex-col">
+    <div className="bg-black text-gray-200 min-h-screen font-sans flex flex-col">
       {/* Header Section */}
       <Header/>
+      
+      <div className="text-2xl font-semibold text-center mt-5">Publish a <span className="text-yellow-500">new</span> announcemnt</div>
 
       {/* Main Content: Form */}
       <main className="flex-grow p-4 md:p-8 flex items-center justify-center">
-        <form onSubmit={handlePublish} className="w-full max-w-4xl bg-black/50 p-6 md:p-8 rounded-2xl border border-gray-800 shadow-2xl shadow-black/30 space-y-6">
+        <form onSubmit={handlePublish} className="w-full max-w-4xl bg-gray-800 p-6 md:p-8 rounded-2xl border border-gray-800 shadow-2xl shadow-black/30 space-y-6">
           
           {/* Form Header: Type and Date */}
           <div className="flex flex-col md:flex-row gap-6">
@@ -112,7 +114,7 @@ export default function Publish() {
                 id="announcement-type"
                 value={announcementType}
                 onChange={(e) => setAnnouncementType(e.target.value)}
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                className="w-50% bg-gray-800 border border-yellow-500 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
               >
                 <option>Tech</option>
                 <option>Social & Culture</option>
@@ -121,21 +123,7 @@ export default function Publish() {
                 <option>General</option>
               </select>
             </div>
-            
-            {/* Publish On */}
-            <div className="flex-1">
-              <label htmlFor="publish-on" className="block text-sm font-medium text-gray-400 mb-2">Publish On</label>
-              <div className="relative">
-                <input 
-                  type="datetime-local" 
-                  id="publish-on"
-                  value={publishOn}
-                  onChange={(e) => setPublishOn(e.target.value)}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg pl-3 pr-10 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                />
-                <CalendarIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"/>
-              </div>
-            </div>
+            <div className="bg-yellow-500 text-black font-bold px-4 mt-5 h-10 flex items-center justify-center rounded hover:bg-yellow-600">Preview</div>
           </div>
 
           {/* Title */}
@@ -146,8 +134,8 @@ export default function Publish() {
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="This notice is about..."
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              placeholder="Title of the announcement...."
+              className="w-full bg-gray-800 border border-yellow-500 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
           </div>
 
@@ -159,8 +147,8 @@ export default function Publish() {
               rows="8"
               value={body}
               onChange={(e) => setBody(e.target.value)}
-              placeholder="This is to notify..."
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              placeholder="Please enter the details here..."
+              className="w-full bg-gray-800 border border-yellow-500 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
             ></textarea>
           </div>
 
@@ -194,13 +182,6 @@ export default function Publish() {
           </div>
         </form>
       </main>
-
-      {/* Footer */}
-      <footer className="text-center py-4 border-t border-gray-800">
-        <p className="text-xs text-gray-500">
-          copyright | <a href="#" className="hover:text-yellow-400">Source Code</a>
-        </p>
-      </footer>
     </div>
   );
 }
